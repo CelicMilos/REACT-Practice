@@ -1,14 +1,13 @@
 import { useState } from "react";
-const Rating = () => {
+const Rating = ({heading='Rate your expirience', feedbackMessages=['Terible',"Poor",'Fair','Good','Excellent']}) => {      //destructuring,moze i samo props
     const [rating,setRating]=useState(0)
     const [hover,setHover]=useState(0)
-    const feedbackMessages=['Terible',"Poor",'Fair','Good','Excellent'];
     const stars=Array.from({length:5},(_,i)=>i+1)
     const clicked =(index)=>console.log('Clicked',index);
     const hovered=(direction,index)=>console.log('Hovered!',direction,index);
     return ( 
     <div className='rating-container' style={styles.container}>
-        <h2 style={styles.heading}> Rate Your Expirience</h2>
+        <h2 style={styles.heading}>{heading}</h2>
         <div className="stars">
             {stars.map((star,index)=>(
                 <span 
@@ -34,7 +33,7 @@ const styles={
         fontFamily:'Arial',
         padding:'20px',
     },
-    heading:{color:'red'}
+    // heading:{color:'red'}
 }
 
 export default Rating;
