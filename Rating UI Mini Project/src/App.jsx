@@ -6,7 +6,16 @@ const App = () => {
   const name='Clam Fandango';
   return  <div>
     {/* <h1>Hello {name}</h1> */}
-    <Rating />
+    <Rating heading='How do feal about React?'/>
+    <Rating heading='How do feal about Vue.js?'
+    feedbackMessages={[
+      'Hate it',
+      'Dislike it',
+      'Meh...',
+      'Like it',
+      'Love it'
+    ]}/>
+    <Rating/>
   </div> ;
 }
   
