@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Star from "./Star";
 const Rating = ({heading='Rate your expirience', feedbackMessages=['Terible',"Poor",'Fair','Good','Excellent']}) => {      //destructuring,moze i samo props
     const [rating,setRating]=useState(0)
     const [hover,setHover]=useState(0)
@@ -10,15 +11,17 @@ const Rating = ({heading='Rate your expirience', feedbackMessages=['Terible',"Po
         <h2 style={styles.heading}>{heading}</h2>
         <div className="stars">
             {stars.map((star,index)=>(
-                <span 
-                onClick={()=>setRating(star)}
-                onMouseEnter={()=>setHover(star)} 
-                onMouseLeave={()=>setHover(0)} 
-                key={star}
-                className={`star ${star <=(hover||rating) ? 'active':''}`}
-                >
-                {'\u2605'}
-                </span>
+                <Star
+                 key={star}
+                 star={star}
+                 rating={rating}
+                 hover={hover}
+                 ratingClick={setRating}
+                 hoverEnter={setHover}
+                 hoverLeave={()=> setHover(null)}
+                
+                 />
+              
             ))}
             {/* {hover} */}
         </div>
@@ -46,3 +49,9 @@ export default Rating;
 // }}>
 //   */}
 // A za manje projekte moze da se korist globalni .css fajl
+
+
+// Posto <Star/> nije obican HTML element onda ne moze na njega da se 
+// primeni ni jedan handling event pa mora da  se koriste ratingClick,
+// hoverEnter i hoverLeave kao funkcije i da se ubace kao props u Star komponentu 
+// a na njoj mozemo da koristimo onClick,onMouseEnter ili onMouseLeave 
