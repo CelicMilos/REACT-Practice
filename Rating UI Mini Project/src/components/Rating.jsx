@@ -86,7 +86,8 @@ export default Rating;
 
 
 // Posto <Star/> nije obican HTML element onda ne moze na njega da se 
-// da se primeni ni jedan handling event pa mora da  se koriste ratingClick,
-// hoverEnter i hoverLeave kao funkcije i da se ubace kao props u obe komponente
-// a Star komponenti mozemo da koristimo onClick,onMouseEnter ili onMouseLeave 
+// primeni ni jedan handling event pa mora da  se koriste funkcije ratingClick,
+// hoverEnter i hoverLeave i da se ubace kao props u obe komponente
+// a u Star komponenti mozemo da koristimo onClick,onMouseEnter ili onMouseLeave 
 // i ta komponenta moze vise puta da se koristi.
+
